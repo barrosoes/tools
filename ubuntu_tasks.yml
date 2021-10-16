@@ -1,0 +1,8 @@
+---
+- name: Preparando meu notebook
+  hosts: localhost
+  connection: local
+  tasks:
+ 
+  tasks:
+    - include: tasks/packages.yml    
