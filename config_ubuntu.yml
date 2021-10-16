@@ -356,7 +356,7 @@
     - block:
       - name: Copy wallpaper file   
         copy:
-          src: home/barroso/Downloads/ESTUDOS-DOCKER/CURSO-DOCKER-CAOI-DELGADO/tools/wp1843403.jpg
+          src: files/wp1843403.jpg
           dest: /usr/share/backgrounds/ansible-wallpaper.jpg
           owner: root
           group: root
@@ -365,7 +365,7 @@
       - name: Set Wallpaper
         dconf:
           key: "/home/barroso/Downloads/picture-uri"
-          value: "'/usr/share/backgrounds/ansible-wallpaper.jpg'"
+          value: "'file://usr/share/backgrounds/ansible-wallpaper.jpg'"
 
     - block:
       - name: Set Wallpaper position
