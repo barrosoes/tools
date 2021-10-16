@@ -371,4 +371,4 @@
       - name: Set Wallpaper position
         dconf:
           key: "/home/barroso/Downloads/picture-options"
-          value: "'zoom'"    
+          value: "'scaled'"    
