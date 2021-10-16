@@ -1,0 +1,22 @@
+- name: Installing AWS CLI via pip3
+      become: true
+      pip:
+        name: awscli
+        executable: pip3
+
+    - block:
+      - name: Install Google Key
+        become: true
+        apt_key: 
+          url: 'https://dl.google.com/linux/linux_signing_key.pub'
+          state: present
+      - name: Install Google Repository
+        become: true
+        apt_repository:
+          repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+          state: present
+          filename: google-chrome
+      - name: Install Google Chrome
+        become: true
+        apt:
+          name: google-chrome-stable

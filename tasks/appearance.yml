@@ -1,0 +1,65 @@
+- name: gnome | appearance | copy wallpaper file
+  tags: gnome,gnome-wallpaper
+  become: true
+  copy:
+    src: files/wp1843403.jpg
+    dest: /usr/share/backgrounds/barroso-wallpaper.png
+    owner: root
+    group: root
+    mode: 0644
+
+- name: gnome | appearance | set wallpaper
+  tags: gnome,gnome-wallpaper
+  become_user: barroso
+  dconf:
+    key: "/home/barroso/Downloads/picture-uri"
+    value: "'file:///usr/share/backgrounds/jay-wallpaper.png'"
+
+- name: gnome | appearance | set wallpaper position
+  tags: gnome,gnome-wallpaper
+  become_user: jay
+  dconf:
+    key: "/home/barroso/Downloads/picture-options"
+    value: "'scaled'"
+
+- name: gnome | appearance | copy lock screen background file
+  tags: gnome,gnome-lockscreen
+  become: true
+  copy:
+    src: files/wp1843403.jpg
+    dest: /usr/share/backgrounds/barroso-lockscreen.jpg
+    owner: root
+    group: root
+    mode: 0644
+
+- name: gnome | appearance | set lock screen background
+  tags: gnome,gnome-lockscreen
+  become_user: barroso
+  dconf:
+    key: "/home/barroso/Downloads/picture-uri"
+    value: "'file:///usr/share/backgrounds/barroso-lockscreen.jpg'"
+
+- name: gnome | appearance | set lock screen background position
+  tags: gnome,gnome-lockscreen
+  become_user: barroso
+  dconf:
+    key: "/home/barroso/Downloads/picture-options"
+    value: "'scaled'"
+
+#- name: gnome | appearance | gnome | appearance | set icon theme
+#  become_user: jay
+#  dconf:
+#    key: "/org/gnome/desktop/interface/icon-theme"
+#    value: "'Moka-Minimal'"
+
+#- name: gnome | appearance | set GTK theme
+#  become_user: jay
+#  dconf:
+#    key: "/org/gnome/desktop/interface/gtk-theme"
+#    value: "'Shades-of-gray'"
+
+#- name: gnome | appearance | set shell theme
+#  become_user: jay
+#  dconf:
+#    key: "/org/gnome/shell/extensions/user-theme/name"
+#    value: "'Shades-of-gray'"

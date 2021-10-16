@@ -2,7 +2,9 @@
 - name: Preparando meu notebook
   hosts: localhost
   connection: local
-  tasks:
  
   tasks:
     - include: tasks/packages.yml    
+    - include: tasks/shell.yml    
+    - include: tasks/terminal.yml    
+    - include: tasks/appearance.yml
