@@ -358,7 +358,7 @@
         become: true
         copy:
           src: files/wp1843403.jpg
-          dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+          dest: /usr/share/backgrounds/gnome/ansible-wallpaper.jpg
           owner: root
           group: root
 
@@ -367,7 +367,7 @@
         become_user: barroso
         dconf:
           key: "/home/barroso/Downloads/picture-uri"
-          value: "'file://usr/share/backgrounds/ansible-wallpaper.jpg'"
+          value: "'file://usr/share/backgrounds/gnome/ansible-wallpaper.jpg'"
 
     - block:
       - name: Set Wallpaper position
