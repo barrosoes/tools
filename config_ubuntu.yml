@@ -21,6 +21,7 @@
           - apt-transport-https
           - ca-certificates
           - gnupg
+          - pyton3-psutil  
           - python3-pip
           - make
           - git
