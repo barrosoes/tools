@@ -1,0 +1,172 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
+export LD_LIBRARY_PATH=/DBA/instantclient_21_3
+# VARIAVEIS ORACLE
+export ORACLE_HOME=/DBA/instantclient_21_3
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
+#export PATH=$PATH:/opt/sqlcl/bin
+
+
+export TF_VAR_tenancy_ocid='ocid1.tenancy.oc1..aaaaaaaa3mwz3il6cs22dng7ylc2o6h36xcu5xiz5xidjum7jaxri6u6uwza'
+export TF_VAR_user_ocid='ocid1.user.oc1..aaaaaaaame77e3w5e4hptxiivbqrwqldy5charhcl6el3egawp5hbnyay7sq'
+export TF_VAR_compartment_ocid='ocid1.compartment.oc1..aaaaaaaaki5xeaa27fsvkw7p5sas4bkarhjjohfemudw5szan3oz7235xmpa'
+export TF_VAR_fingerprint='8b:c0:dc:92:09:a6:d7:56:84:be:21:d0:e4:cf:fe:c4'
+export TF_VAR_private_key_path='/home/barroso/.oci/oci_api_key.pem'
+export TF_VAR_region='sa-saopaulo-1'
+
+
+
+export TNS_ADMIN='/DBA/instantclient_21_3/network/admin'
+alias vpn='cd /DBA/Pacotes_Gestao/Pacotes_Gestao_Linux/openvpn_linux/openvpn-mv;cat chavevpn; sudo openvpn mv.ovpn'
+alias sqlplus='/DBA/instantclient_21_3/sqlplus'
+alias sqlp='cd /DBA/oracle-scripts-uteis-banco/scripts; /DBA/instantclient_21_3/sqlplus /nolog'
+alias SOULPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@SOULPRD as sysdba'
+alias REGUPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@REGUPRD as sysdba'
+alias REGUTRN='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@REGUTRN as sysdba'
+alias REGUHML='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@REGUHML as sysdba'
+alias MVSISSPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@MVSISSPRD as sysdba'
+alias LACENPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@LACENPRD as sysdba'
+alias ADB01='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus admin/Welcome123456@ADB01'
+alias BIPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@BIPRD as sysdba'
+alias HDSPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@PROD_HDS as sysdba'
+alias HEACPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@PROD_HEAC as sysdba'
+alias HDSTRN='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@TRN_HDS as sysdba'
+alias HSAPROD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@PROD_HSA as sysdba'
+alias HIMABAPRD='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@HIMABA as sysdba'
+alias PRODHABF='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@PROD_HABF as sysdba'
+alias PRODHRAS='cd /DBA/oracle-scripts-uteis-banco/scripts; sqlplus sys/xjtq28@PRD_HRAS as sysdba'
+alias 2020='cd /DBA/Atendimentos/Clientes/Mv/2020/'
+alias 2021='cd /DBA/Atendimentos/Clientes/Mv/2021/'
+alias orac1='ssh oracle@10.4.1.11'
+alias orac2='ssh oracle@10.4.1.12'
+alias orac3='ssh oracle@10.4.1.13'
+alias orac4='ssh oracle@10.4.1.14'
+alias lt='ls -ltrh'
+alias lta='ls -ltrha'
+alias sqldeveloper='/opt/sqldeveloper/sqldeveloper.sh'
+alias ts73='/home/barroso/scripts/ts73.sh'
+alias ts76='/home/barroso/scripts/ts76.sh'
+alias ts75='/home/barroso/scripts/ts75.sh'
+alias ts246='nohup /home/barroso/scripts/ts246-himaba.sh &'
+alias ts244='nohup /home/barroso/scripts/ts244-himaba.sh &'
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export PATH=/home/barroso/bin:$PATH
+
+[[ -e "/home/barroso/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/barroso/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
+
+[[ -e "/home/barroso/y/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/barroso/y/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
