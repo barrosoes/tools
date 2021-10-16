@@ -352,3 +352,23 @@
         become: true
         apt:
           name: ulauncher
+
+    - block:
+      - name: Copy wallpaper file   
+        copy:
+          src: home/barroso/Downloads/ESTUDOS-DOCKER/CURSO-DOCKER-CAOI-DELGADO/tools/wp1843403.jpg
+          dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+          owner: root
+          group: root
+
+    - block:
+      - name: Set Wallpaper
+        dconf:
+          key: "/home/barroso/Downloads/picture-uri"
+          value: "'/usr/share/backgrounds/ansible-wallpaper.jpg'"
+
+    - block:
+      - name: Set Wallpaper position
+        dconf:
+          key: "/home/barroso/Downloads/picture-options"
+          value: "'zoom'"    
