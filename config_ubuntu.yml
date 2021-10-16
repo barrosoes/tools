@@ -376,9 +376,8 @@
           key: "/home/barroso/Downloads/picture-options"
           value: "'scaled'"    
     
-    - block: 
-     - name: Copy custom bashrc file barroso profile
-       copy:
+      - name: Copy custom bashrc file barroso profile
+        copy:
          src: files/bashrc
          dest: /home/barroso/.bashrc
          owner: barroso
