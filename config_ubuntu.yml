@@ -377,9 +377,9 @@
           value: "'scaled'"    
     
     - block: 
-     - name: Copy custom .bashrc file barroso profile
-     copy:
-       src: files/bashrc
-       dest: /home/barroso/.bashrc
-       owner: barroso
-       group: barroso
+     - name: Copy custom bashrc file barroso profile
+       copy:
+         src: files/bashrc
+         dest: /home/barroso/.bashrc
+         owner: barroso
+         group: barroso
