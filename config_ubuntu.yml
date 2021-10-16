@@ -355,6 +355,7 @@
 
     - block:
       - name: Copy wallpaper file   
+        become: true
         copy:
           src: files/wp1843403.jpg
           dest: /usr/share/backgrounds/ansible-wallpaper.jpg
@@ -374,3 +375,11 @@
         dconf:
           key: "/home/barroso/Downloads/picture-options"
           value: "'scaled'"    
+    
+    - block: 
+     - name: Copy custom .bashrc file barroso profile
+     copy:
+       src: files/bashrc
+       dest: /home/barroso/.bashrc
+       owner: barroso
+       group: barroso
