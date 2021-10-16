@@ -363,12 +363,14 @@
 
     - block:
       - name: Set Wallpaper
+        become_user: barroso
         dconf:
           key: "/home/barroso/Downloads/picture-uri"
           value: "'file://usr/share/backgrounds/ansible-wallpaper.jpg'"
 
     - block:
       - name: Set Wallpaper position
+        become_user: barroso
         dconf:
           key: "/home/barroso/Downloads/picture-options"
           value: "'scaled'"    
